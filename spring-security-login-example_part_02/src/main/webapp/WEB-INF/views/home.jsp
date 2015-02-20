@@ -9,8 +9,8 @@
 
     <sec:authorize ifAnyGranted="ROLE_ADMIN">
         <h1>Only admin can see this</h1><br/>
-        <a href="admin"> Admin Home </a>
-        <a href=<c:url value="/sha1gen"/>>Generate SHA1</a><br/>
+        <a href="admin"> Admin Home </a><p>
+        <a href=<c:url value="/sha1gen"/>>Click to generate SHA1</a><br/>
     </sec:authorize>
 
     <h1>Welcome</h1>

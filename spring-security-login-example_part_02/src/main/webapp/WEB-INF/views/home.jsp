@@ -13,7 +13,7 @@
         <a href=<c:url value="/sha1gen"/>>Click to generate SHA1</a><br/>
     </sec:authorize>
 
-    <h1>Welcome: Everyone can see this.</h1>
+    <h1>Welcome: Every logged in user can see this.</h1>
 
 
 

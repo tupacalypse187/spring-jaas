@@ -4,11 +4,12 @@
     Author     : Chad
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8" language="java" import="java.security.MessageDigest"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
+<%--<%@page contentType="text/html" pageEncoding="UTF-8" language="java" import="java.security.MessageDigest"%>--%>
 <!DOCTYPE html>
 <html>
 <body>
-
+<a href=<c:url value="/j_spring_security_logout"/>>Logout</a><br/>
 <form action="sha1display" method="GET">
     <table border="0">
         <tbody>
@@ -20,8 +21,7 @@
     </table>
     <input type="reset" value="Clear" name="clear" />
     <input type="submit" value="Submit" name="submit" />
-</form></p>
-<a href=<c:url value="/j_spring_security_logout"/>>Logout</a><br/>
+</form><p>
 
 </body>
 </html>

@@ -69,8 +69,8 @@
                     <td>"Hello"</td>
                     <td>"Goodbye"</td>
                      --%>
-                    <td><% userDetails.getString("username"); %></td>
-                    <td><% userDetails.getString("password"); %></td>
+                    <td><%= userDetails.getString("username") %></td>
+                    <td><%= userDetails.getString("password") %></td>
                      
                 </tr>
                 <% } %>

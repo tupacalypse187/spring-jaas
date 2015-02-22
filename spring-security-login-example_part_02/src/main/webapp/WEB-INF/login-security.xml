@@ -13,6 +13,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd">
         <intercept-url pattern="/admin*" access="ROLE_ADMIN"/>
         <intercept-url pattern="/sha1*" access="ROLE_ADMIN"/>
         <intercept-url pattern="/edit*" access="ROLE_ADMIN"/>
+        <intercept-url pattern="/test*" access="ROLE_ADMIN"/>
         <form-login login-page="/login.jsp" default-target-url="/home"
                     authentication-failure-url="/login.jsp?error=true"/>
         <logout logout-success-url="/login.jsp"/>

@@ -9,6 +9,7 @@
     <h1>Only Admin allowed here</h1>
     
     <a href=<c:url value="/sha1gen"/>>Generate SHA1</a><br/>
+    <a href=<c:url value="/editSQL"/>>Edit MySQL</a><br/>
     
 </body>
 </html>

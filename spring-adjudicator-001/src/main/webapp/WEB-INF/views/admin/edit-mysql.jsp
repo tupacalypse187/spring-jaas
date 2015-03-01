@@ -15,7 +15,7 @@
     </head>
     <body>
         <h1>Playing With MySQL Data</h1>
-<%!
+        <%!
         public class UserDetail {
             String URL = "jdbc:mysql://localhost:3306/spring-test";
             String USER01 = "root";

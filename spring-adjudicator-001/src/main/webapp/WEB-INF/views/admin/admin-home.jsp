@@ -11,6 +11,7 @@
     <a href=<c:url value="/sha1gen"/>>Generate SHA1</a><br/>
     <a href=<c:url value="/editSQL"/>>Edit MySQL</a><br/>
     <a href=<c:url value="/testSQL"/>>Test MySQL</a><br/>
+    <a href=<c:url value="/userDetail"/>>SELECT SQL</a><br/>
     
 </body>
 </html>

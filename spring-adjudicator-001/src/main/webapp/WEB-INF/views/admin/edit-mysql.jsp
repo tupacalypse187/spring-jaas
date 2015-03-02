@@ -32,7 +32,7 @@
                     connection = DriverManager.getConnection(URL, USER01, PASS01);
                     
                     selectUserDetails = connection.prepareStatement (
-                    "SELECT id,username,password,authority FROM tempuserdetails");
+                    "SELECT tempid,tempusername,temppassword,tempauthority FROM userdetail");
                     
                 } catch (SQLException e){
                     e.printStackTrace();
@@ -71,10 +71,10 @@
                     <td>"Hello"</td>
                     <td>"Goodbye"</td>
                      --%>
-                    <td><%= userDetails.getString("id") %></td>
-                    <td><%= userDetails.getString("username") %></td>
-                    <td><%= userDetails.getString("password") %></td>
-                    <td><%= userDetails.getString("authority") %></td>
+                    <td><%= userDetails.getString("tempid") %></td>
+                    <td><%= userDetails.getString("tempusername") %></td>
+                    <td><%= userDetails.getString("temppassword") %></td>
+                    <td><%= userDetails.getString("tempauthority") %></td>
                      
                 </tr>
                 <% } %>

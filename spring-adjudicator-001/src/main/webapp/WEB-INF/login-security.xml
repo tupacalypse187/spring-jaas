@@ -30,8 +30,8 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd">
                       where USER_DETAILS.username = ? AND USER_DETAILS.username=USER_AUTH.USERNAME "
                     />-->
             <jdbc-user-service data-source-ref="dataSource"
-                                users-by-username-query="SELECT username,password, 'true' as enabled from tempuserdetails WHERE username=?"
-                                authorities-by-username-query="SELECT username,authority as authorities from tempuserdetails WHERE username=?"
+                                users-by-username-query="SELECT tempusername,temppassword, 'true' as enabled from userdetail WHERE tempusername=?"
+                                authorities-by-username-query="SELECT tempusername,tempauthority as authorities from userdetail WHERE tempusername=?"
             />
         </authentication-provider>
     </authentication-manager>

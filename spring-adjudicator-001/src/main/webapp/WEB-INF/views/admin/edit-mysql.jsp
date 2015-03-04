@@ -67,10 +67,6 @@
                 </tr>
                 <% while (userDetails.next()) { %>
                 <tr>
-                    <%--
-                    <td>"Hello"</td>
-                    <td>"Goodbye"</td>
-                     --%>
                     <td><%= userDetails.getString("tempid") %></td>
                     <td><%= userDetails.getString("tempusername") %></td>
                     <td><%= userDetails.getString("temppassword") %></td>

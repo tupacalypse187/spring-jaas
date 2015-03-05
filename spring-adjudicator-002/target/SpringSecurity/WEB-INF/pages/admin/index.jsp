@@ -17,13 +17,48 @@
         <title>JSP Page</title>
     </head>
     <body>
-
-        <h1>Page Only Accessible by ROLE_ADMIN</h1>
-        <a href="insert">Insert Record</a><p></p>
-        <a href="display">Display Record</a><p></p>
-        <a href=<c:url value="/admin"/>>Admin Home</a><p></p>
-
-	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+            <header>
+		<div class="jumbotron">
+			<div class="container">
+				<h3>Page Only Accessible by ROLE_ADMIN</h3>
+			</div> 
+		</div> 
+            </header>      
+		<div class="container">
+			<div class="row">
+				<div class="well">
+				<a href="insert" class="btn btn-primary">New Record</a>
+				<a href="display" class="btn btn-success">Show Records</a>
+	
+				</div>
+			</div>
+		</div>
+        <footer>
+            <div class="container">
+                    <div class="row">
+                            <div class="well">
+                                <a href=<c:url value="/admin"/> class="btn btn-primary">Admin Home</a>
+                                <a href=<c:url value="/welcome"/> class="btn btn-primary">All Users Home</a>
+                                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <a href=<c:url value="javascript:formSubmit()"/> class="btn btn-primary">Logout</a>
+                                </c:if>
+                                <c:url value="/j_spring_security_logout" var="logoutUrl" />
+                                    <form action="${logoutUrl}" method="post" id="logoutForm">
+                                            <input type="hidden" name="${_csrf.parameterName}"
+                                                    value="${_csrf.token}" />
+                                    </form>
+                                    <script>
+                                            function formSubmit() {
+                                                    document.getElementById("logoutForm").submit();
+                                            }
+                                    </script>
+                            </div>
+                    </div>
+            </div> <!-- end container -->
+        </footer>
+    
+        
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -16,9 +16,21 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <title>Uodate Status</title>
+        
+        <script>
+            function formSubmit() {
+                    document.getElementById("logoutForm").submit();
+            }
+	</script>
     </head>
     <body>
-        <h1>Page Only Accessible by ROLE_ADMIN</h1>
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				<h3>Page Only Accessible by ROLE_ADMIN</h3>
+			</div> 
+		</div> 
+	</header>
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/spring-test"
                            user="root"  password="root"/>

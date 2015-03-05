@@ -15,7 +15,7 @@
 			<h2>This page is not available or does not exist.</h2>
 		</c:when>
 		<c:otherwise>
-			<h2>Username : ${username} <br/>This page is not available or does not exist.</h2>
+			<h2>${username} <br/>This page is not available or does not exist.</h2>
 		</c:otherwise>
 	</c:choose>
 </body>

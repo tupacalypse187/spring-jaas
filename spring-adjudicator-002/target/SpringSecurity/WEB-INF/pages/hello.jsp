@@ -20,7 +20,13 @@
 				document.getElementById("logoutForm").submit();
 			}
 		</script>
-                <br/><h2>Only ROLE_ADMIN and ROLE_USER can see this</h2>
+                <header>
+                    <div class="jumbotron">
+                            <div class="container">
+                                    <h3>Only ROLE_ADMIN and ROLE_USER can see this</h3>
+                            </div> 
+                    </div> 
+                </header>
 		<c:if test="${pageContext.request.userPrincipal.name != null}">
 			<h2>
 				User : ${pageContext.request.userPrincipal.name} | <a
@@ -30,9 +36,37 @@
 	</sec:authorize>
         <sec:authorize ifAnyGranted="ROLE_ADMIN">
             
-        <h1>Only ROLE_ADMIN can see this</h1><br/>
-        <a href="admin"> Admin Home </a><p>
-        <a href=<c:url value="/admin/index"/>>Click to view, add, and edit user and roles</a><br/>
+                <header>
+                    <div class="jumbotron">
+                            <div class="container">
+                                    <h3>Only ROLE_ADMIN can see this</h3>
+                            </div> 
+                    </div> 
+                </header>
+        <footer>
+            <div class="container">
+                    <div class="row">
+                            <div class="well">
+                                <a href=<c:url value="/admin"/> class="btn btn-primary">Admin Home</a>
+                                <a href=<c:url value="index"/> class="btn btn-primary">MySqL Home</a>
+                                <a href=<c:url value="/welcome"/> class="btn btn-primary">All Users Home</a>
+                                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <a href=<c:url value="javascript:formSubmit()"/> class="btn btn-primary">Logout</a>
+                                </c:if>
+                                <c:url value="/j_spring_security_logout" var="logoutUrl" />
+                                    <form action="${logoutUrl}" method="post" id="logoutForm">
+                                            <input type="hidden" name="${_csrf.parameterName}"
+                                                    value="${_csrf.token}" />
+                                    </form>
+                                    <script>
+                                            function formSubmit() {
+                                                    document.getElementById("logoutForm").submit();
+                                            }
+                                    </script>
+                            </div>
+                    </div>
+            </div> <!-- end container -->
+        </footer>
     </sec:authorize>
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

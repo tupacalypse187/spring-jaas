@@ -14,9 +14,21 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <title>INSERT Status</title>
+        
+        <script>
+            function formSubmit() {
+                    document.getElementById("logoutForm").submit();
+            }
+	</script>
     </head>
     <body>
-        <h1>Page Only Accessible by ROLE_ADMIN</h1>
+	<header>
+		<div class="jumbotron">
+			<div class="container">
+				<h3>Page Only Accessible by ROLE_ADMIN</h3>
+			</div> 
+		</div> 
+	</header>
         <c:if test="${ empty param.tempusername or empty param.tempauthority}">
             <c:redirect url="insert" >
                 <c:param name="errMsg" value="Please Enter User and Authority" />

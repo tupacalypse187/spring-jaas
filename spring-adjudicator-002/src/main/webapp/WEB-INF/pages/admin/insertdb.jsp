@@ -10,7 +10,10 @@
  
 <html>
     <head>
-        <title>JINSERT Operation</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <title>INSERT Status</title>
     </head>
     <body>
     <sec:authorize ifAnyGranted="ROLE_ADMIN">

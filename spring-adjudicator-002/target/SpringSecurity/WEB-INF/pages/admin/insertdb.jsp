@@ -16,6 +16,7 @@
         <title>INSERT Status</title>
     </head>
     <body>
+        <h1>Page Only Accessible by ROLE_ADMIN</h1>
         <c:if test="${ empty param.tempusername or empty param.tempauthority}">
             <c:redirect url="insert" >
                 <c:param name="errMsg" value="Please Enter User and Authority" />

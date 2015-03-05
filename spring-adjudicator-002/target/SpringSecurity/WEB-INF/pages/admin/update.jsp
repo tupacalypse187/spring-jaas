@@ -18,6 +18,7 @@
         <title>Update Users</title>
     </head>
     <body>
+        <h1>Page Only Accessible by ROLE_ADMIN</h1>
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/spring-test"
                            user="root"  password="root"/>
@@ -52,8 +53,9 @@
                     </tr>
                 </c:forEach>
             </table>
-            <a href="index">Go Home</a>
         </form>
+            <p></p><a href="index">MySQL Home</a><p></p>
+            <p></p><a href=<c:url value="/admin"/>>Admin Home</a><p></p>
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>

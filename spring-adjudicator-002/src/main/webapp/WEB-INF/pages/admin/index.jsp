@@ -18,7 +18,7 @@
     </head>
     <body>
 
-        <h1>Choose Record Option</h1>
+        <h1>Page Only Accessible by ROLE_ADMIN</h1>
         <a href="insert">Insert Record</a><p></p>
         <a href="display">Display Record</a><p></p>
         <a href=<c:url value="/admin"/>>Admin Home</a><p></p>

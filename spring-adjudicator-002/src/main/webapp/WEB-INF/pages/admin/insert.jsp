@@ -16,6 +16,7 @@
         <title>Insert Page</title>
     </head>
     <body>
+        <h1>Page Only Accessible by ROLE_ADMIN</h1>
         <form action="insertdb" method="get">
             <table border="0" cellspacing="2" cellpadding="5">
                 <thead>
@@ -49,12 +50,14 @@
             </table>
         </form>
         <font color="red"><c:if test="${not empty param.errMsg}">
-            <c:out value="${param.errMsg}" />
-            <a href="index">Go Back</a>
+            <p></p><c:out value="${param.errMsg}" />
+            <p></p><a href="index">MySQL Home</a>
+            <p></p><a href=<c:url value="/admin"/>>Admin Home</a><p></p>
         </c:if></font>
         <font color="green"><c:if test="${not empty param.susMsg}">
-            <c:out value="${param.susMsg}" />
-            <a href="index">Go Back</a>
+            <p></p><c:out value="${param.susMsg}" />
+            <p></p><a href="index">MySQL Home</a>
+            <p></p><a href=<c:url value="/admin"/>>Admin Home</a><p></p>
         </c:if></font>
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

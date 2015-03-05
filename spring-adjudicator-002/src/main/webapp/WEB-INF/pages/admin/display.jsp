@@ -52,12 +52,18 @@
                         <td><c:out value="${row.tempusername}"/></td>
                         <td><c:out value="${row.tempauthority}"/></td>
                         <td><a href="update?tempid=<c:out value="${row.tempid}"/>">Update</a></td>
-                        <td><a href="javascript:confirmGo('Sure to delete this record?','deletedb?tempid=<c:out value="${row.tempid}"/>')">Delete</a></td>
-                         
+                        <td><a href="deletedb?tempid=<c:out value="${row.tempid}"/>">Delete</a></td> 
                     </tr>
                 </c:forEach>
             </table>
         </form>
+    <script>
+        $(document).on("click", ".alert", function(e) {
+            bootbox.alert("Hello world!", function() {
+                console.log("Alert Callback");
+            });
+        });
+    </script>
     </center>
         <footer>
             <div class="container">

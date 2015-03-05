@@ -43,9 +43,31 @@
         </sql:update>
         <c:if test="${count>=1}">
             <font size="5" color='green'> User updated successfully.</font>
-            <p></p><a href="index">MySQL Home</a><p></p>
-            <p></p><a href=<c:url value="/admin"/>>Admin Home</a><p></p>
         </c:if>
+        <footer>
+            <div class="container">
+                    <div class="row">
+                            <div class="well">
+                                <a href=<c:url value="/admin"/> class="btn btn-primary">Admin Home</a>
+                                <a href=<c:url value="index"/> class="btn btn-primary">MySqL Home</a>
+                                <a href=<c:url value="/welcome"/> class="btn btn-primary">All Users Home</a>
+                                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <a href=<c:url value="javascript:formSubmit()"/> class="btn btn-primary">Logout</a>
+                                </c:if>
+                                <c:url value="/j_spring_security_logout" var="logoutUrl" />
+                                    <form action="${logoutUrl}" method="post" id="logoutForm">
+                                            <input type="hidden" name="${_csrf.parameterName}"
+                                                    value="${_csrf.token}" />
+                                    </form>
+                                    <script>
+                                            function formSubmit() {
+                                                    document.getElementById("logoutForm").submit();
+                                            }
+                                    </script>
+                            </div>
+                    </div>
+            </div> <!-- end container -->
+        </footer>
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>

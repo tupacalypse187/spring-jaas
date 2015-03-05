@@ -48,7 +48,7 @@
                     <div class="row">
                             <div class="well">
                                 <a href=<c:url value="/admin"/> class="btn btn-primary">Admin Home</a>
-                                <a href=<c:url value="index"/> class="btn btn-primary">MySqL Home</a>
+                                <a href=<c:url value="/admin/index"/> class="btn btn-primary">MySqL Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn btn-primary">All Users Home</a>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <a href=<c:url value="javascript:formSubmit()"/> class="btn btn-primary">Logout</a>

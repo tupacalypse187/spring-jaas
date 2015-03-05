@@ -5,8 +5,8 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <body>
-	<h1>Title : ${title}</h1>
-	<h1>Message : ${message}</h1>
+	<h1>${title}</h1>
+	<h1>${message}</h1>
 
 	<sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
 		<!-- For login user -->
@@ -20,7 +20,7 @@
 				document.getElementById("logoutForm").submit();
 			}
 		</script>
-
+                <br/><h2>Only ROLE_ADMIN and ROLE_USER can see this</h2>
 		<c:if test="${pageContext.request.userPrincipal.name != null}">
 			<h2>
 				User : ${pageContext.request.userPrincipal.name} | <a
@@ -30,9 +30,9 @@
 	</sec:authorize>
         <sec:authorize ifAnyGranted="ROLE_ADMIN">
             
-        <h1>Only admin can see this</h1><br/>
+        <h1>Only ROLE_ADMIN can see this</h1><br/>
         <a href="admin"> Admin Home </a><p>
-        <a href=<c:url value="/admin/index"/>>Click to generate SHA1</a><br/>
+        <a href=<c:url value="/admin/index"/>>Click to view, add, and edit user and roles</a><br/>
     </sec:authorize>
 </body>
 </html>

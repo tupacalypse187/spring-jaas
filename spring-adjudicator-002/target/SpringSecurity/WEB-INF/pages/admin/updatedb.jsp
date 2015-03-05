@@ -18,7 +18,6 @@
         <title>Uodate Status</title>
     </head>
     <body>
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/spring-test"
                            user="root"  password="root"/>
@@ -34,6 +33,5 @@
             successfully.</font>
               <a href="index">Go Home</a>          
         </c:if>
-    </sec:authorize>
     </body>
 </html>

@@ -23,7 +23,6 @@
         </script>
     </head>
     <body>
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
  
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/spring-test"
@@ -56,6 +55,5 @@
         </form>
         <a href="index">Go Home</a>
     </center>
-    </sec:authorize>
 </body>
 </html>

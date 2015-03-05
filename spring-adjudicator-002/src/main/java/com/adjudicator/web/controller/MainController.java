@@ -17,8 +17,8 @@ public class MainController {
 	public ModelAndView defaultPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Spring Adjudicator MySQL Login Form");
+		model.addObject("message", "Any user and anonymous can see this.");
 		model.setViewName("hello");
 		return model;
 
@@ -28,8 +28,8 @@ public class MainController {
 	public ModelAndView adminPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This page is for ROLE_ADMIN only!");
+		model.addObject("title", "Spring Adjudicator MySQL Login Form");
+		model.addObject("message", "This page is accessible by ROLE_ADMIN only!");
 		model.setViewName("admin");
 
 		return model;
@@ -40,8 +40,8 @@ public class MainController {
 	public ModelAndView indexPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+		model.addObject("message", "This is the MySQL link page!");
 		model.setViewName("admin/index");
 		return model;
 
@@ -50,8 +50,8 @@ public class MainController {
 	public ModelAndView deletePage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Delete Page");
+		model.addObject("message", "This is the delete page!");
 		model.setViewName("admin/deletedb");
 		return model;
 
@@ -60,8 +60,8 @@ public class MainController {
 	public ModelAndView dsiplayPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+		model.addObject("message", "This is the display page!");
 		model.setViewName("admin/display");
 		return model;
 
@@ -70,8 +70,8 @@ public class MainController {
 	public ModelAndView insertPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+		model.addObject("message", "This is the insert page!");
 		model.setViewName("admin/insert");
 		return model;
 
@@ -80,8 +80,8 @@ public class MainController {
 	public ModelAndView insertdbPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Spring Adjudicator - MySQL Access Pagen");
+		model.addObject("message", "This is the insertdb page!");
 		model.setViewName("admin/insertdb");
 		return model;
 
@@ -90,8 +90,8 @@ public class MainController {
 	public ModelAndView updatePage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+		model.addObject("message", "This is the update page!");
 		model.setViewName("admin/update");
 		return model;
 
@@ -100,8 +100,8 @@ public class MainController {
 	public ModelAndView updatedbPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This is default page!");
+		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+		model.addObject("message", "This is the updatedb page!");
 		model.setViewName("admin/updatedb");
 		return model;
 
@@ -131,7 +131,7 @@ public class MainController {
 
 		ModelAndView model = new ModelAndView();
 		
-		//check if user is login
+		//check if user is logged in
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!(auth instanceof AnonymousAuthenticationToken)) {
 			UserDetails userDetail = (UserDetails) auth.getPrincipal();
@@ -142,6 +142,27 @@ public class MainController {
 		}
 		
 		model.setViewName("403");
+		return model;
+
+	}
+        
+        //for 404 access denied page
+	@RequestMapping(value = "/404", method = RequestMethod.GET)
+	public ModelAndView accesssNotAvailable() {
+
+		ModelAndView model = new ModelAndView();
+		
+		//check if user is logged in
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (!(auth instanceof AnonymousAuthenticationToken)) {
+			UserDetails userDetail = (UserDetails) auth.getPrincipal();
+			System.out.println(userDetail);
+		
+			model.addObject("username", userDetail.getUsername());
+			
+		}
+		
+		model.setViewName("404");
 		return model;
 
 	}

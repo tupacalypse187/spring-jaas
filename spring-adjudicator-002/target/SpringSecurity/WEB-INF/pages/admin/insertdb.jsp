@@ -16,7 +16,6 @@
         <title>INSERT Status</title>
     </head>
     <body>
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
         <c:if test="${ empty param.tempusername or empty param.tempauthority}">
             <c:redirect url="insert" >
                 <c:param name="errMsg" value="Please Enter User and Authority" />
@@ -43,7 +42,5 @@
             successfully." />
             </c:redirect>
         </c:if> 
- 
-    </sec:authorize>
     </body>
 </html>

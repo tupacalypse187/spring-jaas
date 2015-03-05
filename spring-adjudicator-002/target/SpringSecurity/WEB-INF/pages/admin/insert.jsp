@@ -16,7 +16,6 @@
         <title>Insert Page</title>
     </head>
     <body>
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
         <form action="insertdb" method="get">
             <table border="0" cellspacing="2" cellpadding="5">
                 <thead>
@@ -57,6 +56,5 @@
             <c:out value="${param.susMsg}" />
             <a href="index">Go Back</a>
         </c:if></font>
-    </sec:authorize>
     </body>
 </html>

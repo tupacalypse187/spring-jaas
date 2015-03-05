@@ -18,7 +18,6 @@
         <title>Update Users</title>
     </head>
     <body>
-    <sec:authorize ifAnyGranted="ROLE_ADMIN">
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/spring-test"
                            user="root"  password="root"/>
@@ -55,6 +54,5 @@
             </table>
             <a href="index">Go Home</a>
         </form>
-    </sec:authorize>
     </body>
 </html>

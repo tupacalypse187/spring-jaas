@@ -36,7 +36,6 @@
         <sql:query dataSource="${dbsource}" var="result">
             SELECT * from userdetail;
         </sql:query>
-    <center>
         <form>
             <div class="container">
 			<div class="well">
@@ -60,14 +59,7 @@
                     </div>
             </div>
         </form>
-    <script>
-        $(document).on("click", ".alert", function(e) {
-            bootbox.alert("Hello world!", function() {
-                console.log("Alert Callback");
-            });
-        });
-    </script>
-    </center>
+
         <footer>
             <div class="container">
                     <div class="row">

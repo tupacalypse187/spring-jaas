@@ -30,36 +30,25 @@
 		</div> 
 	</header>
         <form action="insertdb" method="get">
-            <table border="0" cellspacing="2" cellpadding="5">
-                <thead>
-                    <tr>
-                        <th colspan="2">Add User</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><label>User Name</label></td>
-                        <td><input type="text" name="tempusername"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>User Password</label></td>
-                        <td><input type="text" name="temppassword"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Authority</label></td>
-                        <td><select name="tempauthority">
-                        <option></option>
-                        <option>ROLE_USER</option>
-                        <option>ROLE_ADMIN</option>
-                        </select></td>
-                        <!--<td><input type="text" name="tempauthority"/></td>-->
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Save" /></td>
-                        <td><input type="reset" value="reset"/></td>
-                    </tr>
-                </tbody>
-            </table>
+		<div class="container">
+				<div class="form-group has-warning has-feedback">
+					<label for="element-1" class="control-label">Username</label>
+					<input type="text" name="tempusername" class="form-control">
+				</div>
+                                <div class="form-group has-warning has-feedback">
+					<label for="element-1" class="control-label">Password</label>
+					<input type="text" name="temppassword" class="form-control">
+				</div>
+                                <div class="form-group has-warning has-feedback">
+					<label for="element-1" class="control-label">Authority</label>
+					<select class="form-control" name="tempauthority">
+                            <option>SELECT ROLE</option>
+                            <option>ROLE_USER</option>
+                            <option>ROLE_ADMIN</option>
+                            </select>
+				</div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="reset" class="btn btn-default">Reset</button>
         </form>
         <font color="red"><c:if test="${not empty param.errMsg}">
             <p></p><c:out value="${param.errMsg}" />
@@ -67,13 +56,14 @@
         <font color="green"><c:if test="${not empty param.susMsg}">
             <p></p><c:out value="${param.susMsg}" />
         </c:if></font>
-        
+        <p></p>
         <footer>
             <div class="container">
                     <div class="row">
                             <div class="well">
                                 <a href=<c:url value="/admin/index"/> class="btn btn-primary">MySqL Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn btn-primary">All Users Home</a>
+                                <a href=<c:url value="/admin/display"/> class="btn btn-success">Show Records</a>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <a href=<c:url value="javascript:formSubmit()"/> class="btn btn-primary">Logout</a>
                                 </c:if>

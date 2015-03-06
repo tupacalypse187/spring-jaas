@@ -38,9 +38,10 @@
         </sql:query>
     <center>
         <form>
-            <table border="1" width="40%">
-                <caption>User List</caption>
-                <tr>
+            <div class="container">
+			<div class="well">
+				<table class="table table-hover">
+                    <tr>
                     <th>User ID</th>
                     <th>User Name</th>
                     <th>Authority</th>
@@ -56,6 +57,8 @@
                     </tr>
                 </c:forEach>
             </table>
+                    </div>
+            </div>
         </form>
     <script>
         $(document).on("click", ".alert", function(e) {

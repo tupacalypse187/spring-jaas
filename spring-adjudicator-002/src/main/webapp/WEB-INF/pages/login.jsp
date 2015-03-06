@@ -8,7 +8,8 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             .prettyline {
                 height: 5px;
@@ -23,7 +24,8 @@
         </style>
 </head>
 <body>
-    
+    <div class="container">
+	<div class="well">
     <div class="container"> 
         <hr class="prettyline">
         <br>
@@ -35,6 +37,8 @@
       </center>
       <br>
         <hr class="prettyline">
+    </div>
+            </div>
      </div>
 
 <!-- Modal -->

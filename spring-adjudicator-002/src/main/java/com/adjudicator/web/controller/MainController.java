@@ -17,7 +17,7 @@ public class MainController {
 	public ModelAndView defaultPage() {
 
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator MySQL Login Form");
+		model.addObject("title", "Spring Adjudicator");
 		model.addObject("message", "Any user and anonymous can see this.");
 		model.setViewName("hello");
 		return model;

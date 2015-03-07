@@ -11,6 +11,57 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+            body {padding-top:50px;}
+
+            .box {
+                border-radius: 3px;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                padding: 10px 25px;
+                text-align: right;
+                display: block;
+                margin-top: 60px;
+            }
+            .box-icon {
+                background-color: #57a544;
+                border-radius: 50%;
+                display: table;
+                height: 100px;
+                margin: 0 auto;
+                width: 100px;
+                margin-top: -61px;
+            }
+            .box-icon span {
+                color: #fff;
+                display: table-cell;
+                text-align: center;
+                vertical-align: middle;
+            }
+            .info h4 {
+                font-size: 26px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+            .info > p {
+                color: #717171;
+                font-size: 16px;
+                padding-top: 10px;
+                text-align: justify;
+            }
+            .info > a {
+                background-color: #03a9f4;
+                border-radius: 2px;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                color: #fff;
+                transition: all 0.5s ease 0s;
+            }
+            .info > a:hover {
+                background-color: #0288d1;
+                box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.12);
+                color: #fff;
+                transition: all 0.5s ease 0s;
+            }
             .prettyline {
                 height: 5px;
                 border-top: 0;
@@ -24,22 +75,22 @@
         </style>
 </head>
 <body>
+
     <div class="container">
-	<div class="well">
-    <div class="container"> 
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="box">
         <hr class="prettyline">
         <br>
         <center>
-        <h1><b>Sorry</b></h1>
         <h3>Please sign-in to view this section</h3>
         <br>
-      <button class="btn btn-primary btn-lg" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In</button>
+      <button class="btn btn-primary" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In</button>
       </center>
       <br>
         <hr class="prettyline">
-    </div>
+                </div>
             </div>
-     </div>
+    </div>
 
 <!-- Modal -->
 <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

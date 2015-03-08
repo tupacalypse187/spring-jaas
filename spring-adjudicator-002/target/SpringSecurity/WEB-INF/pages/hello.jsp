@@ -121,6 +121,7 @@
                                 <center><p>User : ${pageContext.request.userPrincipal.name}</p></center>
                                 <a href=<c:url value="/admin"/> class="btn">Admin Home</a>
                                 <a href=<c:url value="/admin/index"/> class="btn">User Information</a>
+                                <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                  </c:if>
                             </div>

@@ -79,17 +79,17 @@
     <div class="container">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="box">
-        <hr class="prettyline">
-        <br>
+                    <div class="info">
+                        <hr class="prettyline">
         <center>
         <h3>Please sign-in to view this section</h3>
-        <br>
-      <button class="btn btn-primary" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In</button>
+      <button class="btn btn-success" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In</button>
       </center>
-      <br>
-        <hr class="prettyline">
+        </div>
+                    <hr class="prettyline">
                 </div>
             </div>
+        </div>
     </div>
 
 <!-- Modal -->
@@ -129,7 +129,7 @@
               </div>
             </div>
 
-            <!-- Multiple Checkboxes (inline) -->
+            <!-- Multiple Checkboxes (inline)
             <div class="control-group">
               <label class="control-label" for="rememberme"></label>
               <div class="controls">
@@ -138,7 +138,7 @@
                   Remember me
                 </label>
               </div>
-            </div>
+            </div> -->
 
             <!-- Button -->
             <div class="control-group">

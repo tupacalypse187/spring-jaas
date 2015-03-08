@@ -23,13 +23,6 @@
 	</script>
     </head>
     <body>
-	<header>
-		<div class="jumbotron">
-			<div class="container">
-				<h3>Page Only Accessible by ROLE_ADMIN</h3>
-			</div> 
-		</div> 
-	</header>
         <c:if test="${ empty param.tempusername or empty param.tempauthority}">
             <c:redirect url="insert" >
                 <c:param name="errMsg" value="Please Enter User and Authority" />

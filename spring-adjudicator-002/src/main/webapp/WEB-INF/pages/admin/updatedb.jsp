@@ -93,10 +93,22 @@
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
-                                <p><p></p></p>
+                                <p></p>
                                 <a href="insert" class="btn">New Record</a>
 				<a href="display" class="btn">Show Records</a>
+                                <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
+                                                url="jdbc:mysql://localhost/spring-test"
+                                                user="root"  password="root"/>
+                                 <sql:update dataSource="${dbsource}" var="count">
+                                     UPDATE userdetail SET tempusername = ?, temppassword=?, tempauthority=?
+                                     WHERE tempid='${param.tempid}'
+                                     <sql:param value="${param.tempusername}" />
+                                     <sql:param value="${param.temppassword}" />
+                                     <sql:param value="${param.tempauthority}" />
+                                 </sql:update>
+                                <c:if test="${count>=0}">
                                 <p><font size="5" color='green'> User updated successfully.</font></p>
+                                </c:if>
                             </div>
                         </div>
                     </div>
@@ -107,16 +119,6 @@
                         <input type="hidden" name="${_csrf.parameterName}"
                                 value="${_csrf.token}" />
                 </form>
-        <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://localhost/spring-test"
-                           user="root"  password="root"/>
-        <sql:update dataSource="${dbsource}" var="count">
-            UPDATE userdetail SET tempusername = ?, temppassword=?, tempauthority=?
-            WHERE tempid='${param.tempid}'
-            <sql:param value="${param.tempusername}" />
-            <sql:param value="${param.temppassword}" />
-            <sql:param value="${param.tempauthority}" />
-        </sql:update>
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>

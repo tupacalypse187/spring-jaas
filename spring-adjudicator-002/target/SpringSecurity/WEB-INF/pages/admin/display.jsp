@@ -91,7 +91,7 @@
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
-                                <p><p></p></p>
+                                <p></p>
 				<a href="display" class="btn">Show Records</a>
                                 <p></p>
                                 <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"

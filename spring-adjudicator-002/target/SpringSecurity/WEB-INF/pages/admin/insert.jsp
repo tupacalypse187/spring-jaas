@@ -91,9 +91,15 @@
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
-                                <p><p></p></p>
+                                <p></p>
 				<a href="display" class="btn">Show Records</a>
                                 <p></p>
+                                <font color="red"><c:if test="${not empty param.errMsg}">
+                                    <p></p><c:out value="${param.errMsg}" />
+                                </c:if></font>
+                                <font color="green"><c:if test="${not empty param.susMsg}">
+                                    <p></p><c:out value="${param.susMsg}" />
+                                </c:if></font>
                                 <form action="insertdb" method="get">
 				<div class="form-group has-warning has-feedback">
 					<label for="element-1" class="control-label">Username</label>
@@ -114,13 +120,6 @@
                             <button type="submit" class="btn btn-default">Submit</button>
                             <button type="reset" class="btn btn-default">Reset</button>
         </form>
-        <font color="red"><c:if test="${not empty param.errMsg}">
-            <p></p><c:out value="${param.errMsg}" />
-        </c:if></font>
-        <font color="green"><c:if test="${not empty param.susMsg}">
-            <p></p><c:out value="${param.susMsg}" />
-        </c:if></font>
-        <p></p>
                         </div>
                     </div>
                 </div>

@@ -88,8 +88,8 @@
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
                                 <p></p>
-                                <a href="insert" class="btn">New Record</a>
-				<a href="display" class="btn">Show Records</a>
+                                <a href="insert" class="btn">New User</a>
+				<a href="display" class="btn">Show Users</a>
                             </div>
                         </div>
                     </div>

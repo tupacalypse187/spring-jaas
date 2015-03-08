@@ -92,7 +92,7 @@
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
                                 <p></p>
-				<a href="display" class="btn">Show Records</a>
+				<a href="insert" class="btn">New User</a>
                                 <p></p>
                                 <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://localhost/spring-test"

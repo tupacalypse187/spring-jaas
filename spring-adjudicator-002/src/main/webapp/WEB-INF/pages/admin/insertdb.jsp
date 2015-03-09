@@ -30,8 +30,8 @@
  
         </c:if>
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://localhost/spring-test"
-                           user="root"  password="root"/>
+                           url="jdbc:mysql://localhost/spring_test"
+                           user="user"  password="password"/>
  
  
         <sql:update dataSource="${dbsource}" var="result">

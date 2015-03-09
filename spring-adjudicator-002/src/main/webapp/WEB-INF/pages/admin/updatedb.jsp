@@ -97,8 +97,8 @@
                                 <a href="insert" class="btn">New User</a>
 				<a href="display" class="btn">Show Records</a>
                                 <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-                                                url="jdbc:mysql://localhost/spring-test"
-                                                user="root"  password="root"/>
+                                                url="jdbc:mysql://localhost/spring_test"
+                                                user="user"  password="password"/>
                                  <sql:update dataSource="${dbsource}" var="count">
                                      UPDATE userdetail SET tempusername = ?, temppassword=?, tempauthority=?
                                      WHERE tempid='${param.tempid}'

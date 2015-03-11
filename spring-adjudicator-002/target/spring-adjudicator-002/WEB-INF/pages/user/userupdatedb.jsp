@@ -1,11 +1,13 @@
 <%-- 
-    Document   : insert
-    Created on : Mar 3, 2015, 9:01:48 AM
+    Document   : updatedb
+    Created on : Mar 3, 2015, 9:04:03 AM
     Author     : Chad
 --%>
-<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@page session="true"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Insert Page</title>
+        <title>Uodate Status</title>
         <style>
             @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
@@ -76,7 +78,12 @@
 	</script>
     </head>
     <body>
-             <div class="container">
+        <c:if test="${ empty param.tempusername or empty param.tempauthority}">
+            <c:redirect url="update" >
+                <c:param name="errMsg" value="Please Enter all of the information" />
+            </c:redirect>
+            </c:if>
+	<div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="box">
@@ -93,34 +100,25 @@
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
                                 <p></p>
+                                <a href="insert" class="btn">New User</a>
 				<a href="display" class="btn">Show Records</a>
-                                <p></p>
-                                <font color="red"><c:if test="${not empty param.errMsg}">
-                                <p></p><c:out value="${param.errMsg}" />
-                                </c:if></font>
-                                <font color="green"><c:if test="${not empty param.susMsg}">
-                                <p></p><c:out value="${param.susMsg}" />
-                                </c:if></font>
-                                <form action="insertdb" method="GET">
-				<div class="form-group has-warning has-feedback">
-					<label for="element-1" class="control-label">Username</label>
-					<input type="text" name="tempusername" class="form-control">
-				</div>
-                                <div class="form-group has-warning has-feedback">
-					<label for="element-1" class="control-label">Password</label>
-					<input type="text" name="temppassword" class="form-control">
-				</div>
-                                <div class="form-group has-warning has-feedback">
-					<label for="element-1" class="control-label">Authority</label>
-					<select class="form-control" name="tempauthority">
-                            <option>SELECT ROLE</option>
-                            <option>ROLE_USER</option>
-                            <option>ROLE_ADMIN</option>
-                            </select>
-				</div>
-                            <button type="submit" class="btn btn-default">Submit</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
-        </form>
+                                <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
+                                                url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
+                                                user="root"  password="password1"/>
+                                 <sql:update dataSource="${dbsource}" var="count">
+                                     UPDATE userdetail SET tempusername = ?, temppassword=?, tempauthority=?
+                                     WHERE tempid='${param.tempid}'
+                                     <sql:param value="${param.tempusername}" />
+                                     <sql:param value="${param.temppassword}" />
+                                     <sql:param value="${param.tempauthority}" />
+                                 </sql:update>
+                                <c:if test="${count>=1}">
+                                    <font size="5" color='green'> Congratulations! Data updated successfully.</font>
+                                    <c:redirect url="update" >
+                                        <c:param name="susMsg" value="Congratulations! Data updated successfully." />
+                                    </c:redirect>
+                                </c:if>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -130,7 +128,7 @@
                         <input type="hidden" name="${_csrf.parameterName}"
                                 value="${_csrf.token}" />
                 </form>
-          	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>
 </html>

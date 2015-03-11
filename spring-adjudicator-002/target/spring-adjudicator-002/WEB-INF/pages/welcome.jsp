@@ -71,7 +71,10 @@
                 <div class="info">
                     <h4 class="text-center">${title}</h4>
                     <center><p>${message}</p></center>
-                    <a href="login" class="btn">Click to Enter</a>
+                    <c:choose>
+                    <c:when test="${pageContext.request.userPrincipal.name != null}"><center>You are logged in as: <b>${pageContext.request.userPrincipal.name}</b></center></c:when>
+                    <c:otherwise><a href="login" class="btn">Click to Enter</a></c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>

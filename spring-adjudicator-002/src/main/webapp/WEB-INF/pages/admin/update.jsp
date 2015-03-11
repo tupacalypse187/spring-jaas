@@ -98,6 +98,12 @@
                                 <a href="insert" class="btn">New User</a>
 				<a href="display" class="btn">Show Users</a>
                                 <p></p>
+                                <font color="red"><c:if test="${not empty param.errMsg}">
+                                <p></p><c:out value="${param.errMsg}" />
+                                </c:if></font>
+                                <font color="green"><c:if test="${not empty param.susMsg}">
+                                <p></p><c:out value="${param.susMsg}" />
+                                </c:if></font>
                                 <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                            url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
                            user="root"  password="password1"/>

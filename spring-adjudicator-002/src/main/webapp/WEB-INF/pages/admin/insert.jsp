@@ -96,10 +96,10 @@
 				<a href="display" class="btn">Show Records</a>
                                 <p></p>
                                 <font color="red"><c:if test="${not empty param.errMsg}">
-                                    <p></p><c:out value="${param.errMsg}" />
+                                <p></p><c:out value="${param.errMsg}" />
                                 </c:if></font>
                                 <font color="green"><c:if test="${not empty param.susMsg}">
-                                    <p></p><c:out value="${param.susMsg}" />
+                                <p></p><c:out value="${param.susMsg}" />
                                 </c:if></font>
                                 <form action="insertdb" method="GET">
 				<div class="form-group has-warning has-feedback">

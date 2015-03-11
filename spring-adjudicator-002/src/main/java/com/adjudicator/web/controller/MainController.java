@@ -19,7 +19,7 @@ public class MainController {
 		ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Adjudicator");
 		model.addObject("message", "Any user and anonymous can see this.");
-		model.setViewName("hello");
+		model.setViewName("welcome");
 		return model;
 
 	}

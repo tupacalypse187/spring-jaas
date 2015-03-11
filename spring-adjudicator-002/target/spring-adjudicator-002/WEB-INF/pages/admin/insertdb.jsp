@@ -7,7 +7,7 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
- 
+<%@page session="true"%>
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -41,12 +41,10 @@
             <sql:param value="${param.tempauthority}" />
         </sql:update>
         <c:if test="${result>=1}">
-            <font size="5" color='green'> Congratulations ! Data inserted
-            successfully.</font>
+            <font size="5" color='green'> Congratulations! Data inserted successfully.</font>
  
             <c:redirect url="insert" >
-                <c:param name="susMsg" value="Congratulations ! Data inserted
-            successfully." />
+                <c:param name="susMsg" value="Congratulations! Data inserted successfully." />
             </c:redirect>
         </c:if> 
 	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>

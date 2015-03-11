@@ -8,6 +8,7 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -87,7 +88,7 @@
                             <div class="info">
                                 <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                <center><p>User : ${pageContext.request.userPrincipal.name}</p></center>
+                                <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/admin"/> class="btn">Admin Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
                                 <p></p>
@@ -106,18 +107,19 @@
             <sql:param value="${param.tempid}" />
         </sql:query>
         
-            <form action="updatedb" method="get">
+            <form action="updatedb" method="GET">
 				<div class="form-group has-warning has-feedback">
 				<c:forEach var="row" items="${result.rows}">
+				<input type="hidden" value="${param.tempid}" name="tempid"/>
 					<label for="element-1" class="control-label">Username</label>
 					<input type="text" value="${row.tempusername}" name="tempusername" class="form-control">
 				</div>
                                 <div class="form-group has-warning has-feedback">
-					<label for="element-1" class="control-label">Password</label>
+					<label for="element-2" class="control-label">Password</label>
 					<input type="text" value="${row.temppassword}" name="temppassword" class="form-control">
 				</div>
                                 <div class="form-group has-warning has-feedback">
-					<label for="element-1" class="control-label">Authority</label>
+					<label for="element-3" class="control-label">Authority</label>
 					<select class="form-control" name="tempauthority">
                             <option>${row.tempauthority}</option>
                             <option>ROLE_USER</option>
@@ -126,14 +128,14 @@
 				</div>
                             <button type="submit" value="Update" class="btn btn-default">Update</button>
  				</c:forEach>
-        </form>
+			</form>
             
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>
 </html>

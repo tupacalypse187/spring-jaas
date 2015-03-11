@@ -6,6 +6,7 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -85,7 +86,7 @@
                             <div class="info">
                                 <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                <center><p>User : ${pageContext.request.userPrincipal.name}</p></center>
+                                <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/admin"/> class="btn">Admin Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
                                 <p></p>
@@ -100,7 +101,7 @@
                                 <font color="green"><c:if test="${not empty param.susMsg}">
                                     <p></p><c:out value="${param.susMsg}" />
                                 </c:if></font>
-                                <form action="insertdb" method="get">
+                                <form action="insertdb" method="GET">
 				<div class="form-group has-warning has-feedback">
 					<label for="element-1" class="control-label">Username</label>
 					<input type="text" name="tempusername" class="form-control">
@@ -125,7 +126,7 @@
                 </div>
             </div>
           <c:url value="/j_spring_security_logout" var="logoutUrl" />
-                <form action="${logoutUrl}" method="post" id="logoutForm">
+                <form action="${logoutUrl}" method="POST" id="logoutForm">
                         <input type="hidden" name="${_csrf.parameterName}"
                                 value="${_csrf.token}" />
                 </form>

@@ -36,17 +36,17 @@ public class MainController {
 
 	}
         
-        @RequestMapping(value = { "/", "/admin/index**" }, method = RequestMethod.GET)
+        @RequestMapping(value = { "/admin/userinfo**" }, method = RequestMethod.GET)
 	public ModelAndView indexPage() {
 
 		ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
 		model.addObject("message", "This is the MySQL link page!");
-		model.setViewName("admin/index");
+		model.setViewName("admin/userinfo");
 		return model;
 
 	}
-        @RequestMapping(value = { "/", "/admin/deletedb**" }, method = RequestMethod.GET)
+        @RequestMapping(value = { "/admin/deletedb**" }, method = RequestMethod.GET)
 	public ModelAndView deletePage() {
 
 		ModelAndView model = new ModelAndView();
@@ -56,7 +56,7 @@ public class MainController {
 		return model;
 
 	}
-        @RequestMapping(value = { "/", "/admin/display**" }, method = RequestMethod.GET)
+        @RequestMapping(value = { "/admin/display**" }, method = RequestMethod.GET)
 	public ModelAndView dsiplayPage() {
 
 		ModelAndView model = new ModelAndView();
@@ -66,7 +66,7 @@ public class MainController {
 		return model;
 
 	}
-        @RequestMapping(value = { "/", "/admin/insert**" }, method = RequestMethod.GET)
+        @RequestMapping(value = { "/admin/insert**" }, method = RequestMethod.GET)
 	public ModelAndView insertPage() {
 
 		ModelAndView model = new ModelAndView();
@@ -76,7 +76,7 @@ public class MainController {
 		return model;
 
 	}
-        @RequestMapping(value = { "/", "/admin/insertdb**" }, method = RequestMethod.GET)
+        @RequestMapping(value = { "/admin/insertdb**" }, method = RequestMethod.GET)
 	public ModelAndView insertdbPage() {
 
 		ModelAndView model = new ModelAndView();
@@ -86,7 +86,7 @@ public class MainController {
 		return model;
 
 	}
-        @RequestMapping(value = { "/", "/admin/update**" }, method = RequestMethod.GET)
+        @RequestMapping(value = { "/admin/update**" }, method = RequestMethod.GET)
 	public ModelAndView updatePage() {
 
 		ModelAndView model = new ModelAndView();
@@ -96,7 +96,7 @@ public class MainController {
 		return model;
 
 	}
-        @RequestMapping(value = { "/", "/admin/updatedb**" }, method = RequestMethod.GET)
+        @RequestMapping(value = { "/admin/updatedb**" }, method = RequestMethod.GET)
 	public ModelAndView updatedbPage() {
 
 		ModelAndView model = new ModelAndView();
@@ -106,12 +106,23 @@ public class MainController {
 		return model;
 
 	}
+        @RequestMapping(value = { "/user**" }, method = RequestMethod.GET)
+	public ModelAndView userHomePage() {
+
+		ModelAndView model = new ModelAndView();
+		model.addObject("title", "Spring Adjudicator - User Home Access Page");
+		model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+		model.setViewName("user/userhome");
+		return model;
+
+	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
 			@RequestParam(value = "logout", required = false) String logout) {
 
 		ModelAndView model = new ModelAndView();
+                model.addObject("message", "Any user and anonymous can see this.");
 		if (error != null) {
 			model.addObject("error", "Invalid username and password!");
 		}

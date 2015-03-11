@@ -8,6 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<%@page session="true"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -77,6 +78,11 @@
 	</script>
     </head>
     <body>
+        <c:if test="${ empty param.tempusername or empty param.tempauthority}">
+            <c:redirect url="update" >
+                <c:param name="errMsg" value="Please Enter all of the information" />
+            </c:redirect>
+            </c:if>
 	<div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -87,7 +93,7 @@
                             <div class="info">
                                 <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                <center><p>User : ${pageContext.request.userPrincipal.name}</p></center>
+                                <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/admin"/> class="btn">Admin Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
                                 <p></p>
@@ -106,8 +112,11 @@
                                      <sql:param value="${param.temppassword}" />
                                      <sql:param value="${param.tempauthority}" />
                                  </sql:update>
-                                <c:if test="${count>=0}">
-                                <p><font size="5" color='green'> User updated successfully.</font></p>
+                                <c:if test="${count>=1}">
+                                    <font size="5" color='green'> Congratulations! Data updated successfully.</font>
+                                    <c:redirect url="update" >
+                                        <c:param name="susMsg" value="Congratulations! Data updated successfully." />
+                                    </c:redirect>
                                 </c:if>
                             </div>
                         </div>
@@ -115,7 +124,7 @@
                 </div>
             </div>
           <c:url value="/j_spring_security_logout" var="logoutUrl" />
-                <form action="${logoutUrl}" method="post" id="logoutForm">
+                <form action="${logoutUrl}" method="POST" id="logoutForm">
                         <input type="hidden" name="${_csrf.parameterName}"
                                 value="${_csrf.token}" />
                 </form>

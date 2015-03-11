@@ -1,5 +1,6 @@
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page session="true"%>
 <html>
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<!-- Optional theme -->
@@ -87,7 +88,8 @@
                             <div class="info">
                                 <h4 class="text-center">Only ROLE_ADMIN and ROLE_USER can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                <center><p>User : ${pageContext.request.userPrincipal.name}</p></center>
+                                <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
+                                <a href=<c:url value="/user"/> class="btn">User Home</a>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                  </c:if>
                             </div>
@@ -97,7 +99,7 @@
             </div>	
             <!-- For login user -->
 		<c:url value="/j_spring_security_logout" var="logoutUrl" />
-		<form action="${logoutUrl}" method="post" id="logoutForm">
+		<form action="${logoutUrl}" method="POST" id="logoutForm">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 		</form>
@@ -118,9 +120,9 @@
                             <div class="info">
                                 <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                <center><p>User : ${pageContext.request.userPrincipal.name}</p></center>
+                                <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/admin"/> class="btn">Admin Home</a>
-                                <a href=<c:url value="/admin/index"/> class="btn">User Information</a>
+                                <a href=<c:url value="/admin/userinfo"/> class="btn">User Information</a>
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                                  </c:if>

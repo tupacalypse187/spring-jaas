@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS spring_test;
 CREATE DATABASE spring_test;
-CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'testuser1';
-GRANT ALL ON spring_test.* TO 'testuser'@'localhost';
+CREATE USER 'root'@'mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com' IDENTIFIED BY 'password1';
+GRANT ALL ON spring_test.* TO 'root'@'mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com';
 FLUSH PRIVILEGES;
 USE spring_test;
 

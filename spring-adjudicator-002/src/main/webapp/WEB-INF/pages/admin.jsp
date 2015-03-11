@@ -69,8 +69,8 @@
                             <div class="info">
                                 <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                <center><p>User : ${pageContext.request.userPrincipal.name}</p></center>
-                                <a href=<c:url value="/admin/index"/> class="btn">User Information</a>
+                                <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
+                                <a href=<c:url value="/admin/userinfo"/> class="btn">User Information</a>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
@@ -81,7 +81,7 @@
                 </div>
             </div>
 	<c:url value="/j_spring_security_logout" var="logoutUrl" />
-	<form action="${logoutUrl}" method="post" id="logoutForm">
+	<form action="${logoutUrl}" method="POST" id="logoutForm">
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
 	</form>

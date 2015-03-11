@@ -1,7 +1,8 @@
 DROP DATABASE IF EXISTS spring_test;
 CREATE DATABASE spring_test;
-CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL ON spring_test.* TO 'user'@'localhost';
+CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'testuser1';
+GRANT ALL ON spring_test.* TO 'testuser'@'localhost';
+FLUSH PRIVILEGES;
 USE spring_test;
 
 

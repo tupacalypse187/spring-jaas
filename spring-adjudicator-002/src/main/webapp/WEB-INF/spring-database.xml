@@ -7,9 +7,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/spring_test?autoReconnect=true" />
-		<property name="username" value="user" />
-		<property name="password" value="password" />
+		<property name="url" value="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test?autoReconnect=true" />
+		<property name="username" value="root" />
+		<property name="password" value="password1" />
 	</bean>
 
 </beans>

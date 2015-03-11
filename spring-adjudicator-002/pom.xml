@@ -110,7 +110,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>SpringSecurity</finalName>
+		<finalName>spring-adjudicator-002</finalName>
 		<plugins>
 
 			<plugin>

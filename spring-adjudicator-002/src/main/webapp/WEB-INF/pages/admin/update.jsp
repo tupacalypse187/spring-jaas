@@ -98,8 +98,8 @@
 				<a href="display" class="btn">Show Users</a>
                                 <p></p>
                                 <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://localhost/spring_test"
-                           user="user"  password="password"/>
+                           url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
+                           user="root"  password="password1"/>
  
         <sql:query dataSource="${dbsource}" var="result">
             SELECT * from userdetail where tempid=?;

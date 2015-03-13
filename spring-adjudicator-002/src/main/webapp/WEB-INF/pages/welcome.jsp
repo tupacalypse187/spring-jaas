@@ -2,11 +2,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
 <html>
+    <head>
     	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <title>Spring Adjudicator Welcome Page</title>
         <style>
             @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
@@ -60,6 +61,7 @@
                 transition: all 0.5s ease 0s;
             }
         </style>
+    </head>
 <body>
     <div class="container">
     <div class="row">

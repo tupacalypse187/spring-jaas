@@ -141,6 +141,11 @@
                     </div>
                 </div>
             </div>
+            <c:url value="/j_spring_security_logout" var="logoutUrl" />
+                    <form action="${logoutUrl}" method="POST" id="logoutForm">
+                            <input type="hidden" name="${_csrf.parameterName}"
+                                    value="${_csrf.token}" />
+                    </form>
         <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>

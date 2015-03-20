@@ -1,12 +1,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page session="true"%>
 <html>
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-<body>
-    <style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <body>
+        <style>
             @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
             body {padding-top:50px;}
@@ -59,31 +59,31 @@
                 transition: all 0.5s ease 0s;
             }
         </style>
-        
-	<div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <div class="box">
-                            <div class="box-icon">
-                                <span class="fa fa-4x fa-html5"></span>
-                            </div>
-                            <div class="info">                                
-                                <h4 class="text-center">HTTP Status 403 - Access is denied</h4>
-                                <c:choose>
-                                        <c:when test="${empty username}">
-                                            <center>You do not have permission to access this page!</center>
-                                                <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                           <center>You are logged in as: <b>${username}</b> <br/>You do not have permission to access this page!</center>
-                                           <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
-                                        </c:otherwise>
-                                </c:choose>
-	                            </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="box">
+                        <div class="box-icon">
+                            <span class="fa fa-4x fa-html5"></span>
+                        </div>
+                        <div class="info">                                
+                            <h4 class="text-center">HTTP Status 403 - Access is denied</h4>
+                            <c:choose>
+                                <c:when test="${empty username}">
+                                    <center>You do not have permission to access this page!</center>
+                                    <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <center>You are logged in as: <b>${username}</b> <br/>You do not have permission to access this page!</center>
+                                    <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-</body>
+    </body>
 </html>

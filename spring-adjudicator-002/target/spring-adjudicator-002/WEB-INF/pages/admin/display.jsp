@@ -11,8 +11,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SELECT Operation</title>
         <style>
@@ -70,68 +70,68 @@
         </style>
         <script>
             function formSubmit() {
-                    document.getElementById("logoutForm").submit();
+                document.getElementById("logoutForm").submit();
             }
-	</script>
+        </script>
     </head>
     <body>
-	<div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                        <div class="box">
-                            <div class="box-icon">
-                                <span class="fa fa-4x fa-html5"></span>
-                            </div>
-                            <div class="info">
-                                <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
-                                <c:if test="${pageContext.request.userPrincipal.name != null}">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="box">
+                        <div class="box-icon">
+                            <span class="fa fa-4x fa-html5"></span>
+                        </div>
+                        <div class="info">
+                            <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
+                            <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/admin"/> class="btn">Admin Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
-                                </c:if>
-                                <p></p>
-				<a href="insert" class="btn">New User</a>
-                                <p></p>
-                                <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
-                           user="root"  password="password1"/>
- 
-        <sql:query dataSource="${dbsource}" var="result">
-            SELECT * from userdetail;
-        </sql:query>
-        <form>
-				<table class="table table-hover">
-                    <tr>
-                    <th>User ID</th>
-                    <th>User Name</th>
-                    <th>Authority</th>
-                    <th colspan="2">Action</th>
-                </tr>
-                <c:forEach var="row" items="${result.rows}">
-                    <tr>
-                        <td><c:out value="${row.tempid}"/></td>
-                        <td><c:out value="${row.tempusername}"/></td>
-                        <td><c:out value="${row.tempauthority}"/></td>
-                        <td><a href="update?tempid=<c:out value="${row.tempid}"/>">Update</a></td>
-                        <td><a href="deletedb?tempid=<c:out value="${row.tempid}"/>">Delete</a></td> 
-                    </tr>
-                </c:forEach>
-            </table>
-        </form>
-                            </div>
+                            </c:if>
+                            <p></p>
+                            <a href="insert" class="btn">New User</a>
+                            <p></p>
+                            <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
+                                               url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
+                                               user="adminuser"  password="adm1nUser"/>
+
+                            <sql:query dataSource="${dbsource}" var="result">
+                                SELECT * from userdetail;
+                            </sql:query>
+                            <form>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>User ID</th>
+                                        <th>User Name</th>
+                                        <th>Authority</th>
+                                        <th colspan="2">Action</th>
+                                    </tr>
+                                    <c:forEach var="row" items="${result.rows}">
+                                        <tr>
+                                            <td><c:out value="${row.tempid}"/></td>
+                                            <td><c:out value="${row.tempusername}"/></td>
+                                            <td><c:out value="${row.tempauthority}"/></td>
+                                            <td><a href="update?tempid=<c:out value="${row.tempid}"/>">Update</a></td>
+                                            <td><a href="deletedb?tempid=<c:out value="${row.tempid}"/>">Delete</a></td> 
+                                        </tr>
+                                    </c:forEach>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-          <c:url value="/j_spring_security_logout" var="logoutUrl" />
-                <form action="${logoutUrl}" method="POST" id="logoutForm">
-                        <input type="hidden" name="${_csrf.parameterName}"
-                                value="${_csrf.token}" />
-                </form>
-        
-	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+        </div>
+        <c:url value="/j_spring_security_logout" var="logoutUrl" />
+        <form action="${logoutUrl}" method="POST" id="logoutForm">
+            <input type="hidden" name="${_csrf.parameterName}"
+                   value="${_csrf.token}" />
+        </form>
+
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-</body>
+    </body>
 </html>

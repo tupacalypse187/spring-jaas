@@ -13,169 +13,176 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
-	public ModelAndView defaultPage() {
+    @RequestMapping(value = {"/", "/welcome**"}, method = RequestMethod.GET)
+    public ModelAndView defaultPage() {
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator");
-		model.addObject("message", "Any user and anonymous can see this.");
-		model.setViewName("welcome");
-		return model;
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator");
+        model.addObject("message", "Any user and anonymous can see this.");
+        model.setViewName("welcome");
+        return model;
 
-	}
+    }
 
-	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
+    @RequestMapping(value = "/admin**", method = RequestMethod.GET)
+    public ModelAndView adminPage() {
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator MySQL Login Form");
-		model.addObject("message", "This page is accessible by ROLE_ADMIN only!");
-		model.setViewName("admin");
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator MySQL Login Form");
+        model.addObject("message", "This page is accessible by ROLE_ADMIN only!");
+        model.setViewName("admin");
 
-		return model;
+        return model;
 
-	}
-        
-        @RequestMapping(value = { "/admin/userinfo**" }, method = RequestMethod.GET)
-	public ModelAndView indexPage() {
+    }
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
-		model.addObject("message", "This is the MySQL link page!");
-		model.setViewName("admin/userinfo");
-		return model;
+    @RequestMapping(value = {"/admin/userinfo**"}, method = RequestMethod.GET)
+    public ModelAndView indexPage() {
 
-	}
-        @RequestMapping(value = { "/admin/deletedb**" }, method = RequestMethod.GET)
-	public ModelAndView deletePage() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+        model.addObject("message", "This is the MySQL link page!");
+        model.setViewName("admin/userinfo");
+        return model;
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Delete Page");
-		model.addObject("message", "This is the delete page!");
-		model.setViewName("admin/deletedb");
-		return model;
+    }
 
-	}
-        @RequestMapping(value = { "/admin/display**" }, method = RequestMethod.GET)
-	public ModelAndView dsiplayPage() {
+    @RequestMapping(value = {"/admin/deletedb**"}, method = RequestMethod.GET)
+    public ModelAndView deletePage() {
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
-		model.addObject("message", "This is the display page!");
-		model.setViewName("admin/display");
-		return model;
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Delete Page");
+        model.addObject("message", "This is the delete page!");
+        model.setViewName("admin/deletedb");
+        return model;
 
-	}
-        @RequestMapping(value = { "/admin/insert**" }, method = RequestMethod.GET)
-	public ModelAndView insertPage() {
+    }
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
-		model.addObject("message", "This is the insert page!");
-		model.setViewName("admin/insert");
-		return model;
+    @RequestMapping(value = {"/admin/display**"}, method = RequestMethod.GET)
+    public ModelAndView dsiplayPage() {
 
-	}
-        @RequestMapping(value = { "/admin/insertdb**" }, method = RequestMethod.GET)
-	public ModelAndView insertdbPage() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+        model.addObject("message", "This is the display page!");
+        model.setViewName("admin/display");
+        return model;
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator - MySQL Access Pagen");
-		model.addObject("message", "This is the insertdb page!");
-		model.setViewName("admin/insertdb");
-		return model;
+    }
 
-	}
-        @RequestMapping(value = { "/admin/update**" }, method = RequestMethod.GET)
-	public ModelAndView updatePage() {
+    @RequestMapping(value = {"/admin/insert**"}, method = RequestMethod.GET)
+    public ModelAndView insertPage() {
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
-		model.addObject("message", "This is the update page!");
-		model.setViewName("admin/update");
-		return model;
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+        model.addObject("message", "This is the insert page!");
+        model.setViewName("admin/insert");
+        return model;
 
-	}
-        @RequestMapping(value = { "/admin/updatedb**" }, method = RequestMethod.GET)
-	public ModelAndView updatedbPage() {
+    }
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator - MySQL Access Page");
-		model.addObject("message", "This is the updatedb page!");
-		model.setViewName("admin/updatedb");
-		return model;
+    @RequestMapping(value = {"/admin/insertdb**"}, method = RequestMethod.GET)
+    public ModelAndView insertdbPage() {
 
-	}
-        @RequestMapping(value = { "/user**" }, method = RequestMethod.GET)
-	public ModelAndView userHomePage() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - MySQL Access Pagen");
+        model.addObject("message", "This is the insertdb page!");
+        model.setViewName("admin/insertdb");
+        return model;
 
-		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Adjudicator - User Home Access Page");
-		model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
-		model.setViewName("user/userhome");
-		return model;
+    }
 
-	}
+    @RequestMapping(value = {"/admin/update**"}, method = RequestMethod.GET)
+    public ModelAndView updatePage() {
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
-			@RequestParam(value = "logout", required = false) String logout) {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+        model.addObject("message", "This is the update page!");
+        model.setViewName("admin/update");
+        return model;
 
-		ModelAndView model = new ModelAndView();
-                model.addObject("message", "Any user and anonymous can see this.");
-		if (error != null) {
-			model.addObject("error", "Invalid username and password!");
-		}
+    }
 
-		if (logout != null) {
-			model.addObject("msg", "You've been logged out successfully.");
-		}
-		model.setViewName("login");
+    @RequestMapping(value = {"/admin/updatedb**"}, method = RequestMethod.GET)
+    public ModelAndView updatedbPage() {
 
-		return model;
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - MySQL Access Page");
+        model.addObject("message", "This is the updatedb page!");
+        model.setViewName("admin/updatedb");
+        return model;
 
-	}
-	
-	//for 403 access denied page
-	@RequestMapping(value = "/403", method = RequestMethod.GET)
-	public ModelAndView accesssDenied() {
+    }
 
-		ModelAndView model = new ModelAndView();
-		
-		//check if user is logged in
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (!(auth instanceof AnonymousAuthenticationToken)) {
-			UserDetails userDetail = (UserDetails) auth.getPrincipal();
-			System.out.println(userDetail);
-		
-			model.addObject("username", userDetail.getUsername());
-			
-		}
-		
-		model.setViewName("403");
-		return model;
+    @RequestMapping(value = {"/user**"}, method = RequestMethod.GET)
+    public ModelAndView userHomePage() {
 
-	}
-        
-        //for 404 access denied page
-	@RequestMapping(value = "/404", method = RequestMethod.GET)
-	public ModelAndView accesssNotAvailable() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+        model.setViewName("user/userhome");
+        return model;
 
-		ModelAndView model = new ModelAndView();
-		
-		//check if user is logged in
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (!(auth instanceof AnonymousAuthenticationToken)) {
-			UserDetails userDetail = (UserDetails) auth.getPrincipal();
-			System.out.println(userDetail);
-		
-			model.addObject("username", userDetail.getUsername());
-			
-		}
-		
-		model.setViewName("404");
-		return model;
+    }
 
-	}
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+            @RequestParam(value = "logout", required = false) String logout) {
+
+        ModelAndView model = new ModelAndView();
+        model.addObject("message", "Any user and anonymous can see this.");
+        if (error != null) {
+            model.addObject("error", "Invalid username and password!");
+        }
+
+        if (logout != null) {
+            model.addObject("msg", "You've been logged out successfully.");
+        }
+        model.setViewName("login");
+
+        return model;
+
+    }
+
+    //for 403 access denied page
+    @RequestMapping(value = "/403", method = RequestMethod.GET)
+    public ModelAndView accesssDenied() {
+
+        ModelAndView model = new ModelAndView();
+
+        //check if user is logged in
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!(auth instanceof AnonymousAuthenticationToken)) {
+            UserDetails userDetail = (UserDetails) auth.getPrincipal();
+            System.out.println(userDetail);
+
+            model.addObject("username", userDetail.getUsername());
+
+        }
+
+        model.setViewName("403");
+        return model;
+
+    }
+
+    //for 404 access denied page
+    @RequestMapping(value = "/404", method = RequestMethod.GET)
+    public ModelAndView accesssNotAvailable() {
+
+        ModelAndView model = new ModelAndView();
+
+        //check if user is logged in
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (!(auth instanceof AnonymousAuthenticationToken)) {
+            UserDetails userDetail = (UserDetails) auth.getPrincipal();
+            System.out.println(userDetail);
+
+            model.addObject("username", userDetail.getUsername());
+
+        }
+
+        model.setViewName("404");
+        return model;
+
+    }
 
 }

@@ -8,8 +8,8 @@
     <!-- enable use-expressions -->
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
-        <intercept-url pattern="/user/**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/super**" access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER')" />
+        <intercept-url pattern="/user/**" access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER','ROLE_USER')" />
 
 		
         <!-- access denied page -->

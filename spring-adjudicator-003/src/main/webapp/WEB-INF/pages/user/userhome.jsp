@@ -84,7 +84,8 @@
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
-                                <a href="javascript:formSubmit()" class="btn">Logout</a>
+                                <a href=<c:url value="/user/userdisplay"/> class="btn">Update User Info</a>
+                                <p></p><a href="javascript:formSubmit()" class="btn">Logout</a>
                             </c:if>
                         </div>
                     </div>

@@ -112,8 +112,18 @@ public class MainController {
         return model;
 
     }
+    @RequestMapping(value = {"/super**"}, method = RequestMethod.GET)
+    public ModelAndView superuserHomePage() {
 
-    @RequestMapping(value = {"/user**"}, method = RequestMethod.GET)
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_ADMIN and ROLE_SUPER CAN SEE THIS");
+        model.setViewName("super/superuserhome");
+        return model;
+
+    }
+
+    @RequestMapping(value = {"/user/userhome**"}, method = RequestMethod.GET)
     public ModelAndView userHomePage() {
 
         ModelAndView model = new ModelAndView();
@@ -123,7 +133,40 @@ public class MainController {
         return model;
 
     }
+    
+    @RequestMapping(value = {"/user/userdisplay**"}, method = RequestMethod.GET)
+    public ModelAndView userDisplayPage() {
 
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+        model.setViewName("user/userdisplay");
+        return model;
+
+    }
+
+    @RequestMapping(value = {"/user/userupdateinfo**"}, method = RequestMethod.GET)
+    public ModelAndView userUpdatePage() {
+
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+        model.setViewName("user/userupdateinfo");
+        return model;
+
+    }
+    
+    @RequestMapping(value = {"/user/userupdatedb**"}, method = RequestMethod.GET)
+    public ModelAndView userUpdateDBPage() {
+
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+        model.setViewName("user/userupdatedb");
+        return model;
+
+    }
+    
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(value = "error", required = false) String error,
             @RequestParam(value = "logout", required = false) String logout) {

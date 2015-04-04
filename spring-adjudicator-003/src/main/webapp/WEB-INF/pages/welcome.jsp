@@ -72,7 +72,7 @@
                         </div>
                         <div class="info">
                             <h4 class="text-center">${title}</h4>
-                            <center><p>${message}</p></center>
+                            <h3 class="text-center">${message}</h3>
                                     <c:choose>
                                         <c:when test="${pageContext.request.userPrincipal.name != null}"><center>You are logged in as: <b>${pageContext.request.userPrincipal.name}</b></center></c:when>
                                 <c:otherwise><a href="login" class="btn">Click to Enter</a></c:otherwise>
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-        <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')">
+        <sec:authorize access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_SUPER')">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -91,10 +91,42 @@
                                 <span class="fa fa-4x fa-css3"></span>
                             </div>
                             <div class="info">
-                                <h4 class="text-center">Only ROLE_ADMIN and ROLE_USER can see this</h4>
+                                <h4 class="text-center">Only ROLE_ADMIN, ROLE_SUPER, and ROLE_USER can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                                     <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
-                                    <a href=<c:url value="/user"/> class="btn">User Home</a>
+                                    <a href=<c:url value="/user/userhome"/> class="btn">User Home</a>
+                                    <a href="javascript:formSubmit()" class="btn">Logout</a>
+                                </c:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+            <!-- For login user -->
+            <c:url value="/j_spring_security_logout" var="logoutUrl" />
+            <form action="${logoutUrl}" method="POST" id="logoutForm">
+                <input type="hidden" name="${_csrf.parameterName}"
+                       value="${_csrf.token}" />
+            </form>
+            <script>
+                function formSubmit() {
+                    document.getElementById("logoutForm").submit();
+                }
+            </script>
+        </sec:authorize>
+        <sec:authorize access="hasAnyRole('ROLE_ADMIN', 'ROLE_SUPER')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="box">
+                            <div class="box-icon">
+                                <span class="fa fa-4x fa-css3"></span>
+                            </div>
+                            <div class="info">
+                                <h4 class="text-center">Only ROLE_ADMIN and ROLE_SUPER can see this</h4>
+                                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                    <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
+                                    <a href=<c:url value="/super"/> class="btn">Superuser Home</a>
                                     <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
                             </div>

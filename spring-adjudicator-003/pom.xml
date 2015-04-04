@@ -4,10 +4,10 @@
     xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.adjudicator</groupId>
-    <artifactId>spring-adjudicator-002</artifactId>
+    <artifactId>spring-adjudicator-003</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>spring-adjudicator-002</name>
+    <name>spring-adjudicator-003</name>
 
     <licenses>
         <license>
@@ -110,7 +110,7 @@
     </dependencies>
 
     <build>
-        <finalName>spring-adjudicator-002</finalName>
+        <finalName>spring-adjudicator-003</finalName>
         <plugins>
 
             <plugin>

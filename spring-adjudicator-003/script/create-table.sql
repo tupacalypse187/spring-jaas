@@ -15,4 +15,5 @@ CREATE TABLE `spring_test`.`userdetail` (
 
 INSERT INTO `spring_test`.`userdetail` (`tempusername`, `temppassword`, `tempauthority`) VALUES ('admin', 'admin', 'ROLE_ADMIN');
 INSERT INTO `spring_test`.`userdetail` (`tempusername`, `temppassword`, `tempauthority`) VALUES ('user', 'user', 'ROLE_USER');
+INSERT INTO `spring_test`.`userdetail` (`tempusername`, `temppassword`, `tempauthority`) VALUES ('super', 'super', 'ROLE_SUPER');
 INSERT INTO `spring_test`.`userdetail` (`tempusername`, `temppassword`, `tempauthority`) VALUES ('test', 'test', 'ROLE_ADMIN');

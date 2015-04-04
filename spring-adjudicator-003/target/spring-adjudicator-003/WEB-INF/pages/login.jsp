@@ -73,8 +73,8 @@
                             <span class="fa fa-4x"></span>
                         </div>
                         <div class="info">
-                            <h4 class="text-center">${message}</h4>
-                            <h3 class="text-center">This section is for authorized users only. Please sign-in to view this section</h3>
+                            <h4 class="text-center">${title}</h4>
+                            <h3 class="text-center">${message}</h3>
                             <a class="btn" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In</a>
                         </div>
                     </div>

@@ -113,8 +113,9 @@
                                 <div class="form-group has-warning has-feedback">
                                     <label for="element-1" class="control-label">Authority</label>
                                     <select class="form-control" name="tempauthority">
-                                        <option>SELECT ROLE</option>
+                                        <option>PICK ROLE</option>
                                         <option>ROLE_USER</option>
+                                        <option>ROLE_SUPER</option>
                                         <option>ROLE_ADMIN</option>
                                     </select>
                                 </div>

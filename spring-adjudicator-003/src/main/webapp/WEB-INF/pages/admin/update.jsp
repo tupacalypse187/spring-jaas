@@ -129,6 +129,7 @@
                                         <select class="form-control" name="tempauthority">
                                             <option>${row.tempauthority}</option>
                                             <option>ROLE_USER</option>
+                                            <option>ROLE_SUPER</option>
                                             <option>ROLE_ADMIN</option>
                                         </select>
                                     </div>

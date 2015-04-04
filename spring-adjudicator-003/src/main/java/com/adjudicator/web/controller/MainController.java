@@ -172,7 +172,8 @@ public class MainController {
             @RequestParam(value = "logout", required = false) String logout) {
 
         ModelAndView model = new ModelAndView();
-        model.addObject("message", "Any user and anonymous can see this.");
+        model.addObject("title", "Any user and anonymous can see this.");
+        model.addObject("message", "This section is for authorized users only. Please sign-in to view this section.");
         if (error != null) {
             model.addObject("error", "Invalid username and password!");
         }

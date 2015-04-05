@@ -112,7 +112,7 @@ public class MainController {
         return model;
 
     }
-    @RequestMapping(value = {"/super**"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/super/superuserhome**"}, method = RequestMethod.GET)
     public ModelAndView superuserHomePage() {
 
         ModelAndView model = new ModelAndView();
@@ -128,7 +128,7 @@ public class MainController {
 
         ModelAndView model = new ModelAndView();
         model.addObject("title", "Spring Adjudicator - User Home Access Page");
-        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+        model.addObject("message", "ONLY ROLE_ADMIN, ROLE_SUPER, AND ROLE_USER CAN SEE THIS");
         model.setViewName("user/userhome");
         return model;
 

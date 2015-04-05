@@ -126,7 +126,7 @@
                                 <h4 class="text-center">Only ROLE_ADMIN and ROLE_SUPER can see this</h4>
                                 <c:if test="${pageContext.request.userPrincipal.name != null}">
                                     <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
-                                    <a href=<c:url value="/super"/> class="btn">Superuser Home</a>
+                                    <a href=<c:url value="/super/superuserhome"/> class="btn">Superuser Home</a>
                                     <a href="javascript:formSubmit()" class="btn">Logout</a>
                                 </c:if>
                             </div>

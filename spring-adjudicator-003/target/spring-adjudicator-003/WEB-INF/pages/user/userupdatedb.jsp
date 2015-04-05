@@ -88,13 +88,13 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="box">
                         <div class="box-icon">
-                            <span class="fa fa-4x fa-html5"></span>
+                            <span class="fa fa-4x fa-css3"></span>
                         </div>
                         <div class="info">
-                            <h4 class="text-center">Only ROLE_ADMIN can see this</h4>
+                            <h4 class="text-center">${message}</h4>
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
-                                <a href=<c:url value="/admin"/> class="btn">Admin Home</a>
+                                <a href=<c:url value="/user/userhome"/> class="btn">User Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
@@ -106,11 +106,9 @@
                                                url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
                                                user="homeuser"  password="h0meUser"/>
                             <sql:update dataSource="${dbsource}" var="count">
-                                UPDATE userdetail SET tempusername = ?, temppassword=?, tempauthority=?
-                                WHERE tempid='${param.tempid}'
-                                <sql:param value="${param.tempusername}" />
+                                UPDATE userdetail SET temppassword= ?
+                                WHERE tempusername='${pageContext.request.userPrincipal.name}'
                                 <sql:param value="${param.temppassword}" />
-                                <sql:param value="${param.tempauthority}" />
                             </sql:update>
                             <c:if test="${count>=1}">
                                 <font size="5" color='green'> Congratulations! Data updated successfully.</font>

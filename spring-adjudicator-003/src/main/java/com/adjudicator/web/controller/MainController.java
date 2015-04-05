@@ -112,6 +112,7 @@ public class MainController {
         return model;
 
     }
+    
     @RequestMapping(value = {"/super/superuserhome**"}, method = RequestMethod.GET)
     public ModelAndView superuserHomePage() {
 
@@ -122,7 +123,40 @@ public class MainController {
         return model;
 
     }
+    
+    @RequestMapping(value = {"/super/superuserdisplay**"}, method = RequestMethod.GET)
+    public ModelAndView superuserDisplay() {
 
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_ADMIN and ROLE_SUPER CAN SEE THIS");
+        model.setViewName("super/superuserdisplay");
+        return model;
+
+    }
+    
+    @RequestMapping(value = {"/super/superuserupdateinfo**"}, method = RequestMethod.GET)
+    public ModelAndView superuserUpdateInfo() {
+
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_ADMIN and ROLE_SUPER CAN SEE THIS");
+        model.setViewName("super/superuserupdate");
+        return model;
+
+    }
+    
+    @RequestMapping(value = {"/super/superuserupdatedb**"}, method = RequestMethod.GET)
+    public ModelAndView superuserUpdateDb() {
+
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Adjudicator - User Home Access Page");
+        model.addObject("message", "ONLY ROLE_ADMIN and ROLE_SUPER CAN SEE THIS");
+        model.setViewName("super/superuserupdatedb");
+        return model;
+
+    }
+    
     @RequestMapping(value = {"/user/userhome**"}, method = RequestMethod.GET)
     public ModelAndView userHomePage() {
 
@@ -139,7 +173,7 @@ public class MainController {
 
         ModelAndView model = new ModelAndView();
         model.addObject("title", "Spring Adjudicator - User Home Access Page");
-        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+        model.addObject("message", "ONLY ROLE_ADMIN, ROLE_SUPER, and ROLE_USER CAN SEE THIS");
         model.setViewName("user/userdisplay");
         return model;
 
@@ -150,8 +184,8 @@ public class MainController {
 
         ModelAndView model = new ModelAndView();
         model.addObject("title", "Spring Adjudicator - User Home Access Page");
-        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
-        model.setViewName("user/userupdateinfo");
+        model.addObject("message", "ONLY ROLE_ADMIN, ROLE_SUPER, and ROLE_USER CAN SEE THIS");
+        model.setViewName("user/userupdate");
         return model;
 
     }
@@ -161,7 +195,7 @@ public class MainController {
 
         ModelAndView model = new ModelAndView();
         model.addObject("title", "Spring Adjudicator - User Home Access Page");
-        model.addObject("message", "ONLY ROLE_USER CAN SEE THIS");
+        model.addObject("message", "ONLY ROLE_ADMIN, ROLE_SUPER, and ROLE_USER CAN SEE THIS");
         model.setViewName("user/userupdatedb");
         return model;
 

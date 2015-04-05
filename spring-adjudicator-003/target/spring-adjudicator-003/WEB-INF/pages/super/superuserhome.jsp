@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>
@@ -77,14 +78,15 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="box">
                         <div class="box-icon">
-                            <span class="fa fa-4x fa-css3"></span>
+                            <span i class="fa fa-4x fa-play-circle"></span>
                         </div>
                         <div class="info">
                             <h4 class="text-center">${message}</h4>
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
-                                <a href="javascript:formSubmit()" class="btn">Logout</a>
+                                <a href=<c:url value="/super/superuserdisplay"/> class="btn">Update User Info</a>
+                                <p></p><a href="javascript:formSubmit()" class="btn">Logout</a>
                             </c:if>
                         </div>
                     </div>

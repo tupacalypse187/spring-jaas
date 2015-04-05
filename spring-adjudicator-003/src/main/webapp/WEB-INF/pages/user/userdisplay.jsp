@@ -80,10 +80,10 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="box">
                         <div class="box-icon">
-                            <span class="fa fa-4x fa-html5"></span>
+                            <span class="fa fa-4x fa-css3"></span>
                         </div>
                         <div class="info">
-                            <h4 class="text-center">Only ROLE_ADMIN, ROLE_SUPER, and ROLE_USER can see this</h4>
+                            <h4 class="text-center">${message}</h4>
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
                                 <a href=<c:url value="/user/userhome"/> class="btn">User Home</a>
@@ -93,7 +93,7 @@
                             </c:if>
                             <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                                                url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
-                                               user="adminuser"  password="adm1nUser"/>
+                                               user="homeuser"  password="h0meUser"/>
 
                             <sql:query dataSource="${dbsource}" var="result">
                                 SELECT tempusername, temppassword FROM userdetail WHERE tempusername IN ('${pageContext.request.userPrincipal.name}');;
@@ -109,7 +109,7 @@
                                         <tr>
                                             <td><c:out value="${row.tempusername}"/></td>
                                             <td><c:out value="${row.temppassword}"/></td>
-                                            <td><a href="userupdate?tempusername=<c:out value="${row.tempusername}"/>">Update</a></td>
+                                            <td><a href="userupdateinfo?tempusername=<c:out value="${row.tempusername}"/>">Update</a></td>
                                         </tr>
                                     </c:forEach>
                                 </table>

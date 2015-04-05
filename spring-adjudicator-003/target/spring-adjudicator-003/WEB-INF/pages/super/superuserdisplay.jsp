@@ -1,23 +1,21 @@
 <%-- 
-    Document   : update
-    Created on : Mar 3, 2015, 9:03:41 AM
+    Document   : display
+    Created on : Mar 3, 2015, 9:03:12 AM
     Author     : Chad
 --%>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@page session="true"%>
-<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Update Users</title>
+        <title>SELECT Operation</title>
         <style>
             @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
@@ -83,48 +81,51 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="box">
                         <div class="box-icon">
-                            <span class="fa fa-4x fa-css3"></span>
+                            <span class="fa fa-4x fa-play-circle"></span>
                         </div>
                         <div class="info">
                             <h4 class="text-center">${message}</h4>
                             <c:if test="${pageContext.request.userPrincipal.name != null}">
                                 <center><p>Logged in as: <b>${pageContext.request.userPrincipal.name}</b></p></center>
-                                <a href=<c:url value="/user/userhome"/> class="btn">User Home</a>
+                                <a href=<c:url value="/super/superuserhome"/> class="btn">Superuser Home</a>
                                 <a href=<c:url value="/welcome"/> class="btn">All Users Home</a>
                                 <p></p>
                                 <a href="javascript:formSubmit()" class="btn">Logout</a>
                             </c:if>
-                            <p></p>
-                            <font color="red"><c:if test="${not empty param.errMsg}">
-                                <p></p><c:out value="${param.errMsg}" />
-                            </c:if></font>
-                            <font color="green"><c:if test="${not empty param.susMsg}">
-                                <p></p><c:out value="${param.susMsg}" />
-                            </c:if></font>
                             <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
                                                url="jdbc:mysql://mydbinstance.cuxgzk20bbjg.us-west-2.rds.amazonaws.com:3306/spring_test"
                                                user="homeuser"  password="h0meUser"/>
 
                             <sql:query dataSource="${dbsource}" var="result">
-                                SELECT temppassword from userdetail where tempusername=?;
-                                <sql:param value="${param.tempusername}" />
+                                SELECT tempusername, temppassword FROM userdetail WHERE tempauthority IN ('ROLE_USER');;
                             </sql:query>
-
-                            <form action="userupdatedb" method="GET">
-                                <div class="form-group has-warning has-feedback">
+                            <form>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Password</th>
+                                        <th colspan="2">Action</th>
+                                    </tr>
                                     <c:forEach var="row" items="${result.rows}">
-                                        <label for="element-2" class="control-label">Password</label>
-                                        <input type="text" value="${row.temppassword}" name="temppassword" class="form-control">
-                                    </div>
-                                    <button type="submit" value="Update" class="btn btn-default">Update</button>
-                                </c:forEach>
+                                        <tr>
+                                            <td><c:out value="${row.tempusername}"/></td>
+                                            <td><c:out value="${row.temppassword}"/></td>
+                                            <td><a href="superuserupdateinfo?tempusername=<c:out value="${row.tempusername}"/>">Update</a></td>
+                                        </tr>
+                                    </c:forEach>
+                                </table>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <c:url value="/j_spring_security_logout" var="logoutUrl" />
+        <form action="${logoutUrl}" method="POST" id="logoutForm">
+            <input type="hidden" name="${_csrf.parameterName}"
+                   value="${_csrf.token}" />
+        </form>
+
         <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     </body>

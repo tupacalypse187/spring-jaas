@@ -21,7 +21,7 @@
         <spring.version>8.0.20.RELEASE</spring.version>
         <spring.security.version>3.2.6.RELEASE</spring.security.version>
         <jstl.version>1.2</jstl.version>
-        <mysql.connector.version>5.1.34</mysql.connector.version>
+        <mysql.connector.version>8.0.16</mysql.connector.version>
     </properties>
 
     <dependencies>

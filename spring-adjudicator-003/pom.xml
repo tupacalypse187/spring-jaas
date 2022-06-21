@@ -83,7 +83,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.connector.version}</version>
         </dependency>
-                
+
         <!-- bootstrap and jquery for jsp page -->
         <dependency>
             <groupId>org.webjars</groupId>

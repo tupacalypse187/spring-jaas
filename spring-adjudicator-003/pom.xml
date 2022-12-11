@@ -18,7 +18,7 @@
     </licenses>
     <properties>
         <jdk.version>1.6</jdk.version>
-        <spring.version>5.3.20</spring.version>
+        <spring.version>6.0.0</spring.version>
         <spring.security.version>5.2.10.RELEASE</spring.security.version>
         <jstl.version>1.2</jstl.version>
         <mysql.connector.version>8.0.28</mysql.connector.version>
